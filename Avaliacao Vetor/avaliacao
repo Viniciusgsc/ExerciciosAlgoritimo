@@ -1,0 +1,118 @@
+programa{
+    inclua biblioteca Util --> u
+    inteiro valor[10], valordigitado = 0, posicao
+    caracter continua = 's'
+    funcao inicio(){
+
+         para(posicao=0; posicao <10; posicao++){
+               valor[posicao] = u.sorteia(1, 20)
+               escreva(posicao+1,"º número sorteado: ",valor[posicao],"\n")
+           } 
+         escreva("\nMENU\n")
+           escreva("1 - Somar Pares\n")
+           escreva("2 - Somar Ímpares\n")
+           escreva("3 - Somar Entre 6 e 14\n")
+           escreva("4 - Gerar Vetor na Ordem Inversa\n")
+           escreva("5 - Gerar Vetor Copiar Valores Sem Repitir\n")
+           escreva("9 - FINALIZAR\n")
+        faca{
+		leia(valordigitado)
+        se(valordigitado == 1)
+        {
+        	Somapares()
+        }
+         se(valordigitado == 2)
+        {
+        	SomaImpar()
+        }
+         se(valordigitado == 3)
+        {
+        	Soma6a14()
+        }
+         se(valordigitado == 4)
+        {
+        	Ordeminversa()
+        }
+         se(valordigitado == 5)
+        {
+        	copiar()
+        }
+        
+        
+
+
+        }
+        enquanto(continua == 's')
+    }
+
+
+
+
+
+     funcao Somapares(){
+         inteiro somaPares = 0
+        para(posicao=0; posicao <10; posicao++){
+            se(valor[posicao]%2 == 0){ 
+                somaPares += valor[posicao]
+            }
+        }
+
+        escreva("A soma dos números pares é: ",somaPares)
+
+    }
+    
+     funcao SomaImpar(){
+         inteiro somaImpar = 0
+        para(posicao=0; posicao <10; posicao++){
+            se(valor[posicao]%2 == 1){ 
+                somaImpar+= valor[posicao]
+            }
+        }
+
+        escreva("A soma dos números impar é: ",somaImpar)
+
+    }
+    
+     funcao Soma6a14(){
+         inteiro soma6a14 = 0
+       para(posicao=0; posicao <10; posicao++){
+            se(valor[posicao] > 6 e valor[posicao] <=14){ 
+                soma6a14 += valor[posicao]
+            }
+        }
+
+        escreva("A soma dos números pares é: ",soma6a14)
+
+    }
+    
+     funcao Ordeminversa(){
+     inteiro inverter[10]
+     inteiro Inverso = 9
+       para(posicao=0; posicao <10; posicao++){ 
+            inverter[Inverso] = valor[posicao]
+            Inverso--
+        }
+        escreva("\nVetores na ordem inversa\n")
+        para(inteiro x=0; x<10; x++){ 
+            escreva(inverter[x],"\n")
+        }
+     }
+        funcao copiar(){
+        inteiro numerosDiferentes[10]
+      para(posicao=0; posicao <10; posicao++){
+            numerosDiferentes[posicao] = valor[posicao]
+            para(inteiro y=posicao-1; y>0; y--){
+                se(numerosDiferentes[y] == numerosDiferentes[posicao] ){
+                    numerosDiferentes[posicao] = 0
+                }
+            }
+        }
+         escreva("\nNumeros com repetidos = 0\n")
+        para(posicao=0; posicao <10; posicao++){ 
+              escreva(numerosDiferentes[posicao],"\n")
+         }
+
+        
+   
+}
+}
