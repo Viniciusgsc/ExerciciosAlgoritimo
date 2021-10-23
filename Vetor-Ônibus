@@ -1,0 +1,118 @@
+programa
+{
+//Declarando as variaveis//
+	inteiro opmenu, fre, ReservaFeita = 0, ReservaCancelada = 0
+	inteiro totallugarr = 40, valorpassagem = 250, contador = 0
+	cadeia lugarreservado[40], lugar[40] 
+	
+	funcao inicio()
+	{
+//Identificação do onibus	
+		escreva("	-----IDENTIFICAÇÃO DO ÔNIBUS -----")
+		escreva("\nDestino do ônibus: São Paulo")
+		escreva("\nNúmero do ônibus: 9876")
+		escreva("\nValor da Passagem: R$250,00")
+		escreva("\n-----------------------------")
+		faca{
+//inicinado menu de opções
+				
+		escreva("\n---MENU/GESTÃO DA VENDAS DE PASSAGENS---")
+		escreva("\n01)Realizar Reserva")
+		escreva("\n02)Cancelar Reserva")
+		escreva("\n03)Listagem Geral")
+		escreva("\n04)Resumo de Ocupação")
+		escreva("\nEscolha uma opção do menu: ")
+		leia(opmenu)
+		limpa()
+//Opções do menu		
+		escolha (opmenu){
+		caso 1: 
+			 FazerReserva()
+			pare
+		caso 2: 
+			CancelarReserva()
+			pare
+		
+		caso 3: 
+			ListaGeral()
+			pare
+		caso 4:
+			ResumoOcupacao()
+			pare
+		caso contrario: 
+			escreva("\nOpção Invalida, por favor escolha uma opçao valida!")
+			pare
+		}
+		}enquanto(opmenu != 9)
+}
+			
+//Inicio das funções 	
+	funcao FazerReserva(){
+		escreva("* * * * FAÇA AQUI A SUA RESERVA PARA A VIAGEM * * * *")
+		escreva("\nDigite o lugar(assento) que se deseja reservar:  ")
+		leia(fre)
+		faca{
+			se(lugarreservado[fre-1] != "x"){
+			lugarreservado[fre-1] = "x"
+			ReservaFeita += 1			
+			escreva("Seu lugar no ônibus foi reservado corretamente!!!!\n")
+			}
+			senao{
+			escreva(" \nEste lugar não está disponivel para ser reservado no momento!!!")	
+			}
+		}enquanto(fre >= 1 e fre <= 40 e lugarreservado[fre-1] != "x")
+		
+	}
+//terminando a funcao de realizar a reserva	
+//começando a função Cancelar a reserva
+	funcao CancelarReserva(){
+		escreva("* * * * FAÇA AQUI A SUA O CANCELAMENTO DE SUA RESERVA PARA A VIAGEM * * * *")
+		escreva("\nDigite o lugar(assento) que se deseja cancelar:  ")
+		leia(fre)
+		faca{
+			se(lugarreservado[fre-1] == "x"){
+			lugarreservado[fre-1] = "0"
+			ReservaFeita += 1
+			ReservaCancelada -= 1
+			escreva("Seu lugar no onibûs foi cancelado corretamente!!!!\n")
+			}
+			senao{
+			escreva(" \nEste lugar não foi reservado sendo assim não pode ser cancelado!!!")	
+			}
+		}enquanto(fre >=1 e fre <= 40 e lugarreservado[fre-1] == "x")
+	}
+//Terminando a função de cancelar a reserva
+//Iniciando a função de Resumo
+	funcao ResumoOcupacao(){
+		escreva("RESUMO DE OCUPAÇÃO\n")
+		escreva("\nVeja aqui as poltronas que já estão reservadas!!!\n")
+		
+		escreva("Coluna    1º Fila    2º Fila    3º Fila    4º Fila  \n")		
+		para(inteiro vertical = 0; vertical < 10; vertical++){
+								
+			escreva(vertical+1,"|:	     ",lugarreservado[contador],"              ",lugarreservado[contador+1],"			",lugarreservado[contador+3],"			",lugarreservado[contador+2],"\n")		
+			contador += 4			
+			}
+			
+		}
+	
+//Terminando a função de resumo
+//Inﾃｭciando a função Listageral
+	funcao ListaGeral(){
+
+		inteiro disponivel,receitabruta 
+		
+		disponivel = totallugarr - ReservaFeita
+		receitabruta = valorpassagem * ReservaFeita
+		escreva("------INFORMAÇÕES SOBRE A OCUPAÇÃO DO ÔNIBUS-----")
+		escreva("\nNumero de poltrona reservadas:",ReservaFeita,"\n")
+		escreva("\nNumero de poltrona Disponiveis:",disponivel,"\n")
+		escreva("\nReceita total  com o valor das passagens:",receitabruta,"\n")
+		escreva("\nTotal de reservas canceladas:--",ReservaCancelada,"\n")
+	}
+	
+	
+	
+	
+}
+	
