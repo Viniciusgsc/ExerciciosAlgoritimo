@@ -1,0 +1,84 @@
+from random import randint
+from time import sleep
+print('==' * 20)
+print('AVALIAÇÃO DE LÓGICA')
+print('==' * 20)
+opcao = 0
+while opcao != 9:
+    print('''
+    ***MENU DE OPÇÕES***
+    [1] PERCORRER PALAVRA
+    [2] JOGO DA QUINA
+    [9] FINALIZAR O PROGRAMA
+    ''')
+    opcao = int(input('Infome a opção desejada: '))
+
+    if opcao == 1:
+        print('PERCORRENDO A PALAVRA')
+        p = str(input('Digite uma Palavra: '))
+        import string
+        alfabeto = list(string.ascii_uppercase)
+        print(alfabeto)
+
+        posicao = 0
+        for letra in (p):
+            print(F'LETRA DA PALAVRA: {letra} --- POSICAO:{posicao}')
+            posicao +=1
+
+
+    elif opcao == 2:
+        acerto = 0
+        print('QUINA --- CONCURSSO 9876 -- 27/11/2021')
+        s1 = randint(0,60)
+        s2 = randint(0, 60)
+        s3 = randint(0, 60)
+        s4 = randint(0, 60)
+        s5 = randint(0, 60)
+        ap1 = randint(0,60)
+        ap2 = randint(0, 60)
+        ap3 = randint(0, 60)
+        ap4 = randint(0, 60)
+        ap5 = randint(0, 60)
+        print(F'SORTEIO REALIZADO:{s1},{s2},{s3},{s4},{s5}')
+        print(F'APOSTA FEITA: {ap1},{ap2},{ap3},{ap4},{ap5}')
+
+        print(f'Numero apostado:{ap1}---Sorteio:{s1}')
+        if s1 == ap1:
+            acerto+=1
+            print('Você acertou!')
+        else:
+            print('Você nâo acertou.Mais sorte na proxima Vez!')
+
+        print(f'Numero apostado:{ap2}---Sorteio:{s2}')
+        if s2 == ap2:
+            acerto +=1
+            print('Voce acertou')
+        else:
+            print('Você nâo acertou.Mais sorte na proxima Vez!')
+        print(f'Numero apostado:{ap3}---Sorteio:{s3}')
+        if s3 == ap3:
+            acerto +=1
+            print('Voce acertou!!')
+        else:
+            print('Você nâo acertou.Mais sorte na proxima Vez!')
+        print(f'Numero apostado:{ap4}---Sorteio:{s4}')
+        if s4 == ap4:
+            acerto +=1
+            print('Voce Acertou')
+        else:
+            print('Voce errou')
+        print(f'Numero Apostado:{ap5}---Sorteio:{s5}')
+        if s5 == ap5:
+            acerto += 1
+            print('Voce Acertou')
+        else:
+            print('Você nâo acertou.Mais sorte na proxima Vez!')
+        print(f'voce acertou {acerto} numeros')
+    elif opcao == 9:
+        print('FINALIZANDO O PROGRAMA')
+    else:
+        print('OPÇÃO INVALIDA!TENTE NOVAMENTE!')
+    sleep(1)
+    print('<>' * 10)
+    sleep(1)
+    print('FIM DO PROGRAMA!')
