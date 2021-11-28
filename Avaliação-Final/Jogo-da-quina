@@ -15,30 +15,33 @@ while opcao != 9:
 
     if opcao == 1:
         print('PERCORRENDO A PALAVRA')
-        p = str(input('Digite uma Palavra: '))
+        
         import string
         alfabeto = list(string.ascii_uppercase)
         print(alfabeto)
-
-        posicao = 0
-        for letra in (p):
+        p = input('DIGITE UMA PALAVRA: ').upper()
+        posicao = 1
+        for letra in p:
+            pos = alfabeto.index(letra) + 1
             print(F'LETRA DA PALAVRA: {letra} --- POSICAO:{posicao}')
-            posicao +=1
+            posicao+=1
+            print(F'POSICÃO DA LETRA NO ALFABETO:{pos}')
+        
 
 
     elif opcao == 2:
         acerto = 0
         print('QUINA --- CONCURSSO 9876 -- 27/11/2021')
-        s1 = randint(0,60)
-        s2 = randint(0, 60)
-        s3 = randint(0, 60)
-        s4 = randint(0, 60)
-        s5 = randint(0, 60)
-        ap1 = randint(0,60)
-        ap2 = randint(0, 60)
-        ap3 = randint(0, 60)
-        ap4 = randint(0, 60)
-        ap5 = randint(0, 60)
+        s1 = randint(1,80)
+        s2 = randint(1,80)
+        s3 = randint(1,80)
+        s4 = randint(1,80)
+        s5 = randint(1,80)
+        ap1 = randint(1,80)
+        ap2 = randint(1,80)
+        ap3 = randint(1,80)
+        ap4 = randint(1,80)
+        ap5 =randint(1,80)
         print(F'SORTEIO REALIZADO:{s1},{s2},{s3},{s4},{s5}')
         print(F'APOSTA FEITA: {ap1},{ap2},{ap3},{ap4},{ap5}')
 
@@ -79,6 +82,6 @@ while opcao != 9:
     else:
         print('OPÇÃO INVALIDA!TENTE NOVAMENTE!')
     sleep(1)
-    print('<>' * 10)
+    print('=' * 30)
     sleep(1)
     print('FIM DO PROGRAMA!')
