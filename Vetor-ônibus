@@ -1,6 +1,6 @@
 programa
 {
-//FEITO POR VINÍCIUS GABRIEL DA SILVA CAETANO
+//FEITO POR VINÍCIUS GABRIEL DA SILVA CAETANOO
 //Declarando as variaveis//
 	inteiro opmenu, fre, ReservaFeita = 0, ReservaCancelada = 0
 	inteiro totallugarr = 40, valorpassagem = 250, contador = 0
